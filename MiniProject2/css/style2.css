@@ -1,0 +1,279 @@
+
+*{
+    margin:0;
+    padding: 0;
+    box-sizing:border-box;
+
+}
+
+img{
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+/* Utility Classes */
+.nowrap{
+  white-space: nowrap;
+}
+
+/* General Styles */
+
+html{
+  scroll-behavior: smooth;
+}
+
+body{
+font: 1.5rem Arial, sans-serif;
+min-height: 100vh;
+
+background-color: #475569;
+background-image: radial-gradient(whitesmoke, #475569);
+display: flex;
+flex-direction: column;
+
+}
+
+
+/* :is(header,footer) we can override specificity 
+if you add a class inside :is(header,footer,.card)
+it increases the specificity adopts whichever has higher*/
+
+/* :where(header,footer,.card) does not have any 
+specificity can be overriden*/
+
+header, footer{
+    position: sticky;
+    background-color: #1e293b;
+    color: whitesmoke;
+    text-align: center;
+}
+
+header{
+    top:0;
+}
+
+nav{
+    background-color: antiquewhite;
+    padding: 0.5rem;
+    border-bottom: 2px solid black;
+    font-weight: bolder;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+/* any-link selects both link and visited pseudo class */
+nav a:any-link{
+
+  color: black;
+
+}
+
+/* nav a:hover, nav a:focus instead we can use the below way */
+/* DRY Do not repeat yourself */
+
+nav :is(a:hover,a:focus){
+  color: hsla(0,0%,20%,0.6);
+}
+nav a:active{
+color: red;
+
+}
+
+main{
+
+    flex-grow:1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1rem;
+
+}
+
+footer{
+bottom: 0;    
+} 
+
+/* Profile card */
+
+.card{
+  
+  scroll-margin-top: 8rem;
+  width:  min(100%, 350px);
+  background-color: #cbd5e1;
+  border: 2px solid black;
+  border-radius: 15px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+
+/* whoever is the target of that selection has that border
+highlight what is selected */
+.card:target{
+    border: 5px solid rebeccapurple;
+}
+
+/* selecting any image without the alt attribute
+helps in checking any missing alts or anything else */
+.card img:not([alt]){
+border: 10px solid red;
+}
+
+
+
+.card figure{
+  display: flex;
+  flex-flow: column nowrap;
+
+}
+
+/* based on the orignal order */
+/* .card:nth-child(2){
+    background-color: papayawhip;
+
+} */
+
+.card:nth-child(even){
+    background-color: papayawhip;
+}
+
+.card img{
+  border: 5px double #333;
+  border-radius: 50%;
+
+}
+
+.card figcaption{
+
+  font-weight: bolder;
+  font-size: 2rem;
+  margin: 1rem;
+  text-align: center;
+
+}
+
+.card p{
+    position: relative;
+}
+
+
+/* we can style these */
+.card p::before{
+    content: open-quote;
+    font-size: 3em;
+    position: absolute;
+    top: -0.25em;
+    left: -0.5em;
+}
+
+.card p::after{
+    content: close-quote;
+    font-size: 3em;
+    position: absolute;
+    top: -0.25em;
+    right:-0.5em;
+}
+
+/* unable to select the content added */
+.card figcaption::after{
+    content:' hello';
+    display:block;
+}
+
+/* .card figcaption::first-letter{
+    font-size: 3rem;
+
+} */
+
+.card figcaption::first-line{
+    font-size: 3rem;
+}
+
+/* || SMALL */
+@media screen and (min-width: 576px) {
+ main{
+  justify-content: center;
+  flex-flow: row wrap;
+  padding: 1rem;
+ }
+ .card{
+  width: min(100%, 400px);
+ }
+
+ .card:last-child {
+  order: -1;
+
+ }
+}
+
+
+/* || MEDIUM */
+@media screen and (min-width: 768px) {
+  nav{
+    display: none;
+  }
+
+  .card{
+    width: min(100%, 325px);
+  }
+.card figure{
+  flex-flow: column-reverse;
+}
+
+
+.card p{
+  margin-top: 1rem;
+}
+
+}
+
+/* || LARGE */
+@media screen and (min-width: 992px) {
+ .card{
+  width: min(100%,400px);
+ } 
+
+ .card:nth-child(2){
+  order:-1;
+ }
+}
+
+/* || XL  */
+@media screen and (min-width: 1200px) {
+  
+  .card{
+    width: min(calc(33% - 1rem),500px);
+  }
+}
+
+/* || MOBILE DEVICE LANDSCAPE  */
+@media screen and (max-height: 425px) and (min-aspect-ratio: 7/4) {
+ h1{
+  font-size: 1.5rem;
+ }
+
+ main{
+  flex-flow: row nowrap;
+  justify-content: space-evenly;
+  align-items: stretch;
+ }
+
+ .card{
+  width: min(calc(33% -0.25rem),200px);
+ }
+
+ .card figcaption, .card p{
+  font-size: 1.25rem;
+
+ }
+
+ 
+
+  nav {
+    display: none;
+  }
+}

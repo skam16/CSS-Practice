@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+body{
+padding: 10%;
+font-size: 2rem;
+font-family: 'Roboto', sans-serif;
+background-color: hsl(37, 100%, 92%);
+}
+
+h1,h2{
+    text-decoration: underline;
+}
+article{
+    margin-bottom: 5%;
+}
+
+ol{
+    list-style-type: upper-roman;
+    padding-left: 10%;
+
+
+}
+
+ul{
+    list-style-type:square;
+    text-align: center;
+    list-style:inside;
+    color:blue;
+    line-height: 1.5;
+
+    /* list-style-image:url(); */
+}
+
+ul li:nth-child(2){
+    color: gold;
+
+}
+/* 
+::marker{
+    color: black;
+    font-family: fantasy;
+    font-size:1em;
+    content:"Only $5>> ";
+} */

@@ -1,0 +1,46 @@
+*{
+
+
+}
+
+
+html{
+    font-size:22px; 
+}
+
+
+body{
+
+    
+}
+
+main{
+    font-family: monospace;
+}
+
+.gray{
+    color:gray;
+}
+
+h1,h2{
+    color:blue;
+}
+
+p{
+    color:purple;
+}
+
+.section{
+
+    color:gray;
+}
+
+.highlight{
+    text-transform: uppercase;
+    background-color: gold;
+}
+
+#second{
+
+    font-style: italic;
+}
